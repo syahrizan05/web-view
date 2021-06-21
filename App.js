@@ -10,6 +10,8 @@ import {
   ActivityIndicator,
   Image,
 } from "react-native";
+import Constants from 'expo-constants';
+
 
 const CustomButton = ({ goToWeb, uri, selectedUri, label }) => {
   return (
@@ -49,7 +51,7 @@ export default function App() {
     setUri(uri);
   };
   return (
-    <SafeAreaView style={{ flex: 1 }}>
+    <View style={{ flex: 1, backgroundColor:"whitesmoke",paddingTop:Constants.statusBarHeight }}>
       <View style={{ flex: 11 }}>
         {uri !== "home" ? (
           <WebView
@@ -72,7 +74,7 @@ export default function App() {
               source={require("./assets/icon.png")}
               style={{ width: 200, height: 200, margin: 20 }}
             />
-            <Text>Select from the buttons below!</Text>
+            <Text>Select from the buttons below! {Constants.statusBarHeight}</Text>
           </View>
         )}
       </View>
@@ -108,7 +110,7 @@ export default function App() {
           />
         </View>
       </View>
-    </SafeAreaView>
+    </View>
   );
 }
 
